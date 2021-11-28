@@ -2,6 +2,7 @@
 Custom Css
 */
 /*--------------CSS HIGHLIGHT PRODUCT---------*/
+
 .highlight .title{
     font-weight: bold;
     font-size: 1.7rem;
@@ -398,3 +399,119 @@ Custom Css
     outline: 0;
     margin: 10%;
 }
+/*-------------CSS Category -------------*/
+.product-list-content{
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 7.5rem;
+}
+.product-list-content .category .title{
+    font-size: 22px;
+}
+.product-list-content .category .item-name{
+    font-size: 18px;
+}
+
+.product-list-content .category .item-name:hover{
+    cursor: pointer;
+}
+
+.product-list-content .category .item-cat{
+    display: block;
+}
+
+.product-list-content .category .item-cat a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.product-list-content .product .nav a{
+    font-size: 18px;
+    text-decoration: none;
+    padding-right: 1.5rem;
+    color: #000;
+    font-weight: bold;
+}
+
+.product-list-content .product .nav input{
+    margin-left: 3rem;
+    width: 26rem;
+    padding: 5px;
+}
+.product .nav .btn-solid-primary{
+    background: #59AB6E;
+} 
+#content-page2,
+#content-page3{
+    display: none;
+}
+
+
+.product-list-content .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  .product-list-content .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgb(230, 230, 230);
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .product-list-content .grid-container .item{
+      text-align: left;
+  }
+
+  .product-list-content .grid-container .item:hover{
+      cursor: pointer;
+      box-shadow: 0 0 10px rgb(128, 128, 128);
+  }
+
+  .product-list-content .grid-container .item img{
+      width: 14rem;
+  }
+
+  .product-list-content .grid-container .item p,
+  .product-list-content .grid-container .item .star{
+      margin-left: 0.5rem;
+  }
+
+  .product-list-content .grid-container .item .item-name{
+      font-weight: bold;
+      text-overflow: ellipsis;
+  }
+
+  .product-list-content .grid-container .item span{
+      padding: 3px;
+      border: 1px solid #000;
+      font-size: 12px;
+  }
+
+  .product-list-content .grid-container .item .price{
+      font-weight: bold;
+  }
+
+  .product-list-content .pagination{
+      margin-left: 5px;
+  }
+  .product-list-content  .pagination .page-number{
+      padding: 5px 10px;
+      border: 1px solid #000;
+      margin-left: 5px;
+      font-weight: bold;
+  }
+
+  .product-list-content .pagination .page-number.active{
+    background-color: #59AB6E;
+  }
+
+  .product-list-content .pagination .page-number:hover{
+      cursor: pointer;
+      background-color: #59AB6E;
+  }
+
+
