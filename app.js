@@ -12,8 +12,7 @@ const productsRouter = require('./components/products');
 const db =require('./components/conf/db/index');
 
 //connect to db
-//db.connect();
-db.connect();
+
 const app = express();
 
 // view engine setup
@@ -51,5 +50,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//db.connect();
+db.connect(); 
 
 module.exports = app;

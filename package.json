@@ -14,7 +14,8 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.0.13",
     "morgan": "~1.9.1",
-    "nodee": "^0.1.0"
+    "nodee": "^0.1.0",
+    "npm-watch": "^0.11.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
