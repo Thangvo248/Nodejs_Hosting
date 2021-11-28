@@ -2,6 +2,7 @@
 Custom Css
 */
 /*--------------CSS HIGHLIGHT PRODUCT---------*/
+
 .highlight .title{
     font-weight: bold;
     font-size: 1.7rem;
@@ -434,11 +435,13 @@ Custom Css
 }
 
 .product-list-content .product .nav input{
-    margin-left: 5rem;
-    width: 18rem;
+    margin-left: 3rem;
+    width: 26rem;
     padding: 5px;
 }
-
+.product .nav .btn-solid-primary{
+    background: #59AB6E;
+} 
 #content-page2,
 #content-page3{
     display: none;
@@ -469,7 +472,7 @@ Custom Css
   }
 
   .product-list-content .grid-container .item img{
-      width: 12rem;
+      width: 14rem;
   }
 
   .product-list-content .grid-container .item p,
