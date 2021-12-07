@@ -1,4 +1,4 @@
-const Product = require('../products/productService');
+const Product = require('./productModel');
 const { mutipleMongooseToObject } = require('../util/mongooese');
 
 exports.list= async(req,res)=>{

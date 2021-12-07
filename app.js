@@ -8,8 +8,8 @@ const exphbs = require('express-handlebars');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./components/users');
 const productsRouter = require('./components/products');
-
-const db =require('./components/conf/db/index');
+const contactRouter =  require('./routes/contact');
+const db =require('./conf/db/index');
 
 //connect to db
 
@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
+app.use('/contact',contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
