@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-
 async function connect(){
     try {
-        await mongoose.connect('mongodb://localhost:27017/ptudweb_ecommerce_dev', {
+        await mongoose.connect('mongodb+srv://thangvo:231236@cluster0.fprxi.mongodb.net/ptudweb_ecommerce_dev?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
