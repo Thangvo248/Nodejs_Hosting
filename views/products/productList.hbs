@@ -1,23 +1,24 @@
 <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
     </div>
+</div>
 
 
 
- <!-- Start Content -->
+<!-- Start Content -->
 <section class="product-list-content">
     <div class="category">
         <h2 class="title">Danh mục</h2>
@@ -31,7 +32,7 @@
             </div>
         </div>
         <div class="category-item">
-            <h3 class="item-name"  onclick="Minimize()">Điện thoại</h3>
+            <h3 class="item-name" onclick="Minimize()">Điện thoại</h3>
             <div class="item-cat">
                 <a href="#">1</a>
                 <a href="#">2</a>
@@ -40,7 +41,7 @@
             </div>
         </div>
         <div class="category-item">
-            <h3 class="item-name"  onclick="Minimize()">Phụ kiện</h3>
+            <h3 class="item-name" onclick="Minimize()">Phụ kiện</h3>
             <div class="item-cat">
                 <a href="#">1</a>
                 <a href="#">2</a>
@@ -59,82 +60,52 @@
             <button type="button" class="btn-solid-primary">
                 <svg height="19" viewBox="0 0 19 19" width="19" class="shopee-svg-icon ">
                     <g fill-rule="evenodd" stroke="none" stroke-width="1">
-                        <g transform="translate(-1016 -32)"><g>
-                            <g transform="translate(405 21)">
-                                 <g transform="translate(611 11)">
-                                    <path d="m8 16c4.418278 0 8-3.581722 8-8s-3.581722-8-8-8-8 3.581722-8 8 3.581722 8 8 8zm0-2c-3.3137085 0-6-2.6862915-6-6s2.6862915-6 6-6 6 2.6862915 6 6-2.6862915 6-6 6z"></path>
-                                    <path d="m12.2972351 13.7114222 4.9799555 4.919354c.3929077.3881263 1.0260608.3842503 1.4141871-.0086574.3881263-.3929076.3842503-1.0260607-.0086574-1.414187l-4.9799554-4.919354c-.3929077-.3881263-1.0260608-.3842503-1.4141871.0086573-.3881263.3929077-.3842503 1.0260608.0086573 1.4141871z"></path>
-                                </g>       
-                            </g>       
-                        </g>        
-                    </g>        
-                </svg> 
-            </button>    
+                        <g transform="translate(-1016 -32)">
+                            <g>
+                                <g transform="translate(405 21)">
+                                    <g transform="translate(611 11)">
+                                        <path
+                                            d="m8 16c4.418278 0 8-3.581722 8-8s-3.581722-8-8-8-8 3.581722-8 8 3.581722 8 8 8zm0-2c-3.3137085 0-6-2.6862915-6-6s2.6862915-6 6-6 6 2.6862915 6 6-2.6862915 6-6 6z">
+                                        </path>
+                                        <path
+                                            d="m12.2972351 13.7114222 4.9799555 4.919354c.3929077.3881263 1.0260608.3842503 1.4141871-.0086574.3881263-.3929076.3842503-1.0260607-.0086574-1.414187l-4.9799554-4.919354c-.3929077-.3881263-1.0260608-.3842503-1.4141871.0086573-.3881263.3929077-.3842503 1.0260608.0086573 1.4141871z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                </svg>
+            </button>
         </div>
-        <div >
+        <div>
+
             <div id="content-page1" class="grid-container">
-                <div class="item" onclick="location.href='/products/productDetail'">
-                    <img src="assets/img/feature_prod_01.jpg" alt="">
-                    <p class="item-name">Samsung Galaxy Z Flip 3 5G</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">22.490.000<via>đ</via></p>
+                {{#each products}}
+                <div class="row align-items-start">
+                        <div class="item" onclick="location.href='/products/productDetail/{{this.slug}}'">
+                            <img src="{{this.image_url}}" alt="{{this.name}}">
+                            <p class="item-name">{{this.name}}</p>
+                            <p class="price">{{this.price}}<via>đ</via>
+                            </p>
+                        </div>
                 </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_02.jpg" alt="">
-                    <p class="item-name">iPhone 13 Pro Max Chính hãng</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">47.090.000<via>đ</via> </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_03.jpg" alt="">
-                    <p class="item-name">LG Gram 2021 16ZD90P</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">38.990.000<via>đ</via></p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_04.jpg" alt="">
-                    <p class="item-name">MacBook Pro 16 inch 2019 New</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">42.490.000<via>đ</via></p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_01.png" alt="">
-                    <p class="item-name">iPhone 11 Pro Max Chính hãng</p>
-                    <p><span>RAM 4GB</span> <span>SSD 64GB</span></p>
-                    <p class="price">9.990.000 <via>đ</via></p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_02.png" alt="">
-                    <p class="item-name">Samsung Galaxy Note 20 Ultra</p>
-                    <p><span>RAM 8GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">8.100.000<via>đ</via></p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_03.png" alt="">
-                    <p class="item-name">Samsung Galaxy S21 Ultra 5G</p>
-                    <p><span>RAM 8GB</span> <span>SSD 128GB</span></p>
-                    <p class="price">14.990.000 </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/laptop_01.png" alt="">
-                    <p class="item-name">Asus Vivobook M513UA-L1230T</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">18.999.000 <via>đ</via></p>
-                </div>
+                {{/each}}
             </div>
             <div id="content-page2" class="grid-container">
-                
+
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/feature_prod_02.jpg" alt="">
                     <p class="item-name">iPhone 13 Pro Max Chính hãng</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">47.090.000<via>đ</via> </p>
+                    <p class="price">47.090.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/feature_prod_03.jpg" alt="">
                     <p class="item-name">LG Gram 2021 16ZD90P</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">38.990.000<via>đ</via></p>
+                    <p class="price">38.990.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_03.png" alt="">
@@ -146,26 +117,30 @@
                     <img src="assets/img/feature_prod_04.jpg" alt="">
                     <p class="item-name">MacBook Pro 16 inch 2019 New</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">42.490.000<via>đ</via></p>
+                    <p class="price">42.490.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_01.png" alt="">
                     <p class="item-name">iPhone 11 Pro Max Chính hãng</p>
                     <p><span>RAM 4GB</span> <span>SSD 64GB</span></p>
-                    <p class="price">9.990.000 <via>đ</via></p>
+                    <p class="price">9.990.000 <via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_02.png" alt="">
                     <p class="item-name">Samsung Galaxy Note 20 Ultra</p>
                     <p><span>RAM 8GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">8.100.000<via>đ</via></p>
+                    <p class="price">8.100.000<via>đ</via>
+                    </p>
                 </div>
-                
+
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/laptop_01.png" alt="">
                     <p class="item-name">Asus Vivobook M513UA-L1230T</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">18.999.000 <via>đ</via></p>
+                    <p class="price">18.999.000 <via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/laptop_02.png" alt="">
@@ -179,13 +154,15 @@
                     <img src="assets/img/laptop_01.png" alt="">
                     <p class="item-name">Asus Vivobook M513UA-L1230T</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">18.999.000 <via>đ</via></p>
+                    <p class="price">18.999.000 <via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/feature_prod_02.jpg" alt="">
                     <p class="item-name">iPhone 13 Pro Max Chính hãng</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">47.090.000<via>đ</via> </p>
+                    <p class="price">47.090.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/laptop_02.png" alt="">
@@ -197,25 +174,29 @@
                     <img src="assets/img/feature_prod_04.jpg" alt="">
                     <p class="item-name">MacBook Pro 16 inch 2019 New</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">42.490.000<via>đ</via></p>
+                    <p class="price">42.490.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/feature_prod_03.jpg" alt="">
                     <p class="item-name">LG Gram 2021 16ZD90P</p>
                     <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">38.990.000<via>đ</via></p>
+                    <p class="price">38.990.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_01.png" alt="">
                     <p class="item-name">iPhone 11 Pro Max Chính hãng</p>
                     <p><span>RAM 4GB</span> <span>SSD 64GB</span></p>
-                    <p class="price">9.990.000 <via>đ</via></p>
+                    <p class="price">9.990.000 <via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_02.png" alt="">
                     <p class="item-name">Samsung Galaxy Note 20 Ultra</p>
                     <p><span>RAM 8GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">8.100.000<via>đ</via></p>
+                    <p class="price">8.100.000<via>đ</via>
+                    </p>
                 </div>
                 <div class="item" onclick="location.href='productDetail'">
                     <img src="assets/img/phone_03.png" alt="">
@@ -234,105 +215,118 @@
 </section>
 <!-- End Content -->
 
-    <!-- Start Brands -->
-    <section class="bg-light py-5">
-        <div class="container my-4">
-            <div class="row text-center py-3">
-                <div class="col-lg-6 m-auto">
-                    <h1 class="h5">Thương Hiệu</h1>
-                    <p>
+<!-- Start Brands -->
+<section class="bg-light py-5">
+    <div class="container my-4">
+        <div class="row text-center py-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h5">Thương Hiệu</h1>
+                <p>
 
-                    </p>
-                </div>
-                <div class="col-lg-9 m-auto tempaltemo-carousel">
-                    <div class="row d-flex flex-row">
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
-                                <!--Slides-->
-                                <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide-->
-                                    <div class="carousel-item active">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End First slide-->
-
-                                    <!--Second slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Second slide-->
-
-                                    <!--Third slide-->
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png" alt="Brand Logo"></a>
-                                            </div>
-                                            <div class="col-3 p-md-5">
-                                                <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png" alt="Brand Logo"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Third slide-->
-
-                                </div>
-                                <!--End Slides-->
-                            </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
-
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
+                </p>
+            </div>
+            <div class="col-lg-9 m-auto tempaltemo-carousel">
+                <div class="row d-flex flex-row">
+                    <!--Controls-->
+                    <div class="col-1 align-self-center">
+                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
+                            <i class="text-light fas fa-chevron-left"></i>
+                        </a>
                     </div>
+                    <!--End Controls-->
+
+                    <!--Carousel Wrapper-->
+                    <div class="col">
+                        <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example"
+                            data-bs-ride="carousel">
+                            <!--Slides-->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                <!--First slide-->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End First slide-->
+
+                                <!--Second slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Second slide-->
+
+                                <!--Third slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                        <div class="col-3 p-md-5">
+                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
+                                                    alt="Brand Logo"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Third slide-->
+
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                    </div>
+                    <!--End Carousel Wrapper-->
+
+                    <!--Controls-->
+                    <div class="col-1 align-self-center">
+                        <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
+                            <i class="text-light fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <!--End Controls-->
                 </div>
             </div>
         </div>
-    </section>
-    <!--End Brands-->
+    </div>
+</section>
+<!--End Brands-->

@@ -1,25 +1,43 @@
 const Product = require('./productModel');
 const { mutipleMongooseToObject } = require('../util/mongooese');
+const { mongooseToObject } = require('../util/mongooese');
 
-exports.list= async(req,res)=>{
+class ProductController {
+    //[GET] 
 
-    Product.find({})
-        .then(products=> {
-            res.render('products/productList',{ products: mutipleMongooseToObject(products) 
-            });
-        })
-        .catch(next);
-    //res.render('products/productList');
+    async list(req, res, next) {
+        const products = await Product.find({})
+            .then(products => {
+                res.render('products/productList', {
+                    products: mutipleMongooseToObject(products)
+                });
+            })
+            .catch(next);
+    };
+    //[GET] 
+
+    async cart(req, res) {
+        res.render('products/cart');
+    };
+    //[POST]
+    async add(req, res) {
+
+        const result = await cloudinary.uploader.upload(req.file.path);
+        try {
+            const formData = req.body;
+            formData.image_url = result.secure_url;
+            const product = new Product(formData);
+            const newproduct = await product.save()
+            res.redirect('/products')
+        } catch {
+            res.render('products/addproduct', {
+                errorMessage: 'Error creating product'
+            })
+        }
+    };
+    //[GET]
+    async receipt(req, res) {
+        res.render('products/receipt');
+    }
 }
-
-exports.cart= async(req,res)=>{
-    res.render('products/cart');
-}
-
-exports.receipt= async(req,res)=>{
-    res.render('products/receipt');
-}
-
-exports.productDetail= async(req,res)=>{
-    res.render('products/productDetail/productDetail');
-}
+module.exports = new ProductController();

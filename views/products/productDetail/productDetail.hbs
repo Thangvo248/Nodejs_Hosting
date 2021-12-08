@@ -1,45 +1,52 @@
 <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
-                </div>
-            </form>
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
     </div>
+</div>
 
 
 
-    <!-- Open Content -->
-    <section class="bg-light">
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-lg-5 mt-5">
-                    <div class="card mb-3">
-                        <img class="card-img img-fluid" src="assets/img/feature_prod_02.jpg" alt="Card image cap" id="product-detail">
-                    </div>
+<!-- Open Content -->
+<section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-5 mt-5">
+                <div class="card mb-3">
+                    <img class="card-img img-fluid" src="{{productdetail.image_url}}" alt="Card image cap"
+                        id="product-detail">
+                </div>
+                <!--
                     <div class="row">
-                        <!--Start Controls-->
+                        -->
+                <!--Start Controls
                         <div class="col-1 align-self-center">
                             <a href="#multi-item-example" role="button" data-bs-slide="prev">
                                 <i class="text-dark fas fa-chevron-left"></i>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </div>
-                        <!--End Controls-->
-                        <!--Start Carousel Wrapper-->
+                        -->
+                <!--End Controls-->
+                <!--Start Carousel Wrapper
                         <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                            <!--Start Slides-->
+                            -->
+                <!--Start Slides
                             <div class="carousel-inner product-links-wap" role="listbox">
 
-                                <!--First slide-->
+                                -->
+                <!--First slide
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-4">
@@ -59,9 +66,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/.First slide-->
+                                -->
+                <!--/.First slide
 
-                                <!--Second slide-->
+                                -->
+                <!--Second slide
                                 <div class="carousel-item">
                                     <div class="row">
                                         <div class="col-4">
@@ -81,545 +90,592 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/.Second slide-->
+                                -->
+                <!--/.Second slide
 
                             </div>
-                            <!--End Slides-->
+                           -->
+                <!--End Slides
                         </div>
-                        <!--End Carousel Wrapper-->
-                        <!--Start Controls-->
+                       -->
+                <!--End Carousel Wrapper-->
+                <!--Start Controls
                         <div class="col-1 align-self-center">
                             <a href="#multi-item-example" role="button" data-bs-slide="next">
                                 <i class="text-dark fas fa-chevron-right"></i>
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <!--End Controls-->
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-lg-7 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="h4">iPhone 13 Pro Max </h1>
-                            <p class="h3 py-2">47.090.000<ins>đ</ins></p>
-                            <p class="py-2">
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-secondary"></i>
-                                <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
-                            </p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Thương hiệu:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Apple</strong></p>
-                                </li>
-                            </ul>
+                        -->
+                <!--End Controls
+                    </div>-->
+            </div>
+            <!-- col end -->
+            <div class="col-lg-7 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h4">{{productdetail.name}}</h1>
+                        <p class="h3 py-2">{{productdetail.price}}<ins>đ</ins></p>
+                        <p class="py-2">
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                            <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
+                        </p>
+                        <!--
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Thương hiệu:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>Apple</strong></p>
+                            </li>
+                        </ul> -->
 
-                            <h6>Mô tả:</h6>
-                            <p>
-                                Trải nghiệm với màn hình Super Retina XDR OLED 6.7 inch, độ phân giải 1284 x 2778 pixels, 120Hz, HDR10, Dolby Vision; 
-                                Note tai thỏ nhỏ gọn và nâng cấp cấp camera.
-                            </p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Màu có sẵn :</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Trắng / Đen / Hồng / Xanh</strong></p>
-                                </li>
-                            </ul>
+                        <h6>Mô tả:</h6>
+                        <p>{{productdetail.description}}
+                        </p>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Màu:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>{{productdetail.color}}</strong></p>
+                            </li>
+                        </ul>
 
-                            <h6>Cấu hình chi tiết:</h6>
-                            <ul class="list-unstyled pb-3">
-                                <li>Công nghệ màn hình: OLED</li>
-                                <li>Độ phân giải: 1284 x 2778 Pixels, 3 camera 12 MP, 12 MP</li>
-                                <li>Hệ điều hành: iOS 15</li>
-                                <li>Chip xử lý (CPU): Apple A15 Bionic 6 nhân</li>
-                                <li>Bộ nhớ trong (ROM): 128 GB</li>
-                                <li>RAM: 6 GB</li>
-                                <li>Mạng di động: Hỗ trợ 5G</li>
-                                <li>Số khe sim: 1 Nano SIM & 1 eSIM</li>
-                            </ul>
+                        <h6>Cấu hình chi tiết:</h6>
+                        <ul class="list-unstyled pb-3">
+                            <li>{{productdetail.detail}}</li>
+                        </ul>
 
-                            <form action="" method="GET">
-                                <input type="hidden" name="product-title" value="Activewear">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item">Màu: :
-                                                <input type="hidden" name="product-size" id="product-size" value="S">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">Trắng</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">Đen</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">Hồng</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">Xanh</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item text-right">
-                                                Số lượng
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
+                        <form action="" method="GET">
+                            <input type="hidden" name="product-title" value="Activewear">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item">Màu: :
+                                            <input type="hidden" name="product-size" id="product-size" value="S">
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Trắng</span>
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Đen</span>
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Hồng</span>
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Xanh</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua ngay</button>
-                                    </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Thêm vào giỏ hàng</button>
-                                    </div>
+                                <div class="col-auto">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item text-right">
+                                            Số lượng
+                                            <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success"
+                                                id="btn-minus">-</span></li>
+                                        <li class="list-inline-item"><span class="badge bg-secondary"
+                                                id="var-value">1</span></li>
+                                        <li class="list-inline-item"><span class="btn btn-success"
+                                                id="btn-plus">+</span></li>
+                                    </ul>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua
+                                        ngay</button>
+                                </div>
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                        value="addtocard">Thêm vào giỏ hàng</button>
+                                </div>
+                            </div>
+                        </form>
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="comment">
-            <div class="show-rating">
-                <div class="overall-rating-point">
-                    <div class="rating-result">
-                        <p class="overall">Tổng cộng</p>
-                        <p class="rating-point">4.3</p>
-                        <p class="rating-number">(10 Đánh giá)</p>
-                    </div>
-                    <div class="rating-star">
-                        <p>Dựa trên 3 lượt đánh giá</p>
-                        <div class="1-stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="number">(0)</span>
-                        </div>
-                        <div class="2-stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="number">(0)</span>
-                        </div>
-                        <div class="3-stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="number">(0)</span>
-                        </div>
-                        <div class="4-stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="number">(1)</span>
-                        </div>
-                        <div class="5-stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="number">(2)</span>
-                        </div>
-                    </div>
+    </div>
+    <div class="comment">
+        <div class="show-rating">
+            <div class="overall-rating-point">
+                <div class="rating-result">
+                    <p class="overall">Tổng cộng</p>
+                    <p class="rating-point">4.3</p>
+                    <p class="rating-number">(10 Đánh giá)</p>
                 </div>
-                <div class="cmt-content">
-                    <div class="cmt-block">
-                        <div class="user">
-                            <img src="./assets/img/member_01.jpg" alt="" class="avt">
-                            <div class="username">
-                                <p>Võ Đức Thắng</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Sản phẩm tốt, chất lượng.
-                        </div>
+                <div class="rating-star">
+                    <p>Dựa trên 3 lượt đánh giá</p>
+                    <div class="1-stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="number">(0)</span>
                     </div>
-                    <div class="cmt-block">
-                        <div class="user">
-                            <img src="./assets/img/member_02.jpg" alt="" class="avt">
-                            <div class="username">
-                                <p>Đinh Quang Thọ</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Sản Phẩm tuyệt vời. Nên mua nha mọi người.
-                        </div>
+                    <div class="2-stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="number">(0)</span>
                     </div>
-                    <div class="cmt-block">
-                        <div class="user">
-                            <img src="./assets/img/member_03.jpg" alt="" class="avt">
-                            <div class="username">
-                                <p>Trần Thị Vi</p>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Sản phẩm chất lượng nhưng giá hơi cao.
-                        </div>
+                    <div class="3-stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="number">(0)</span>
                     </div>
-                    <p class="load-more">Load thêm...</p>
+                    <div class="4-stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="number">(1)</span>
+                    </div>
+                    <div class="5-stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="number">(2)</span>
+                    </div>
                 </div>
             </div>
-            <div class="cmt-area">
-                <p class="title">Đánh giá của bạn</p>
-                <input type="text" class="input" placeholder="Tên của bạn">
-                <input type="text" class="input" placeholder="Địa chỉ">
-                <input type="text" class="input" placeholder="Số điện thoại">
-                <input type="text" class="input" placeholder="Nội dung đánh giá">
-                <button class="submit-btn">
-                    GỬI ĐÁNH GIÁ
-                </button>
+            <div class="cmt-content">
+                <div class="cmt-block">
+                    <div class="user">
+                        <img src="./assets/img/member_01.jpg" alt="" class="avt">
+                        <div class="username">
+                            <p>Võ Đức Thắng</p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Sản phẩm tốt, chất lượng.
+                    </div>
+                </div>
+                <div class="cmt-block">
+                    <div class="user">
+                        <img src="./assets/img/member_02.jpg" alt="" class="avt">
+                        <div class="username">
+                            <p>Đinh Quang Thọ</p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Sản Phẩm tuyệt vời. Nên mua nha mọi người.
+                    </div>
+                </div>
+                <div class="cmt-block">
+                    <div class="user">
+                        <img src="./assets/img/member_03.jpg" alt="" class="avt">
+                        <div class="username">
+                            <p>Trần Thị Vi</p>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        Sản phẩm chất lượng nhưng giá hơi cao.
+                    </div>
+                </div>
+                <p class="load-more">Load thêm...</p>
             </div>
         </div>
-    </section>
-    <!-- Close Content -->
+        <div class="cmt-area">
+            <p class="title">Đánh giá của bạn</p>
+            <input type="text" class="input" placeholder="Tên của bạn">
+            <input type="text" class="input" placeholder="Địa chỉ">
+            <input type="text" class="input" placeholder="Số điện thoại">
+            <input type="text" class="input" placeholder="Nội dung đánh giá">
+            <button class="submit-btn">
+                GỬI ĐÁNH GIÁ
+            </button>
+        </div>
+    </div>
+</section>
+<!-- Close Content -->
 
-    <!-- Start Phụ kiện đi kèm -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row text-left p-2 pb-3">
-                <h4>PhỤ KIỆN ĐI KÈM</h4>
+<!-- Start Phụ kiện đi kèm -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-left p-2 pb-3">
+            <h4>PhỤ KIỆN ĐI KÈM</h4>
+        </div>
+
+        <!--Start Carousel Wrapper-->
+        <div id="carousel-related-product">
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_01.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai Nghe SONY MDR-ZX110AP</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">440.000<via>đ</via>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!--Start Carousel Wrapper-->
-            <div id="carousel-related-product">
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_01.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai Nghe SONY MDR-ZX110AP</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_02.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
                             </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">440.000<via>đ</via></p>
                         </div>
                     </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_02.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Cáp Apple Type-C ra Lightning 1m</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">250.000<via>đ</via></p>
-                        </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Cáp Apple Type-C ra Lightning 1m</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">250.000<via>đ</via>
+                        </p>
                     </div>
                 </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_03.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe không dây Bluetooth Airpods</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">3.290.000 <via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_04.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe iPhone Xs|Xs Max|Xr</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">299.000 <via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_01.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai Nghe SONY MDR-ZX110AP</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">440.000<via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_02.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Cáp Apple Type-C ra Lightning 1m</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">250.000<via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_03.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe không dây Bluetooth Airpods</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">3.290.000 <via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_04.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe iPhone Xs|Xs Max|Xr</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">299.000 <via>đ</via></p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_03.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe không dây Bluetooth
+                            Airpods</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">3.290.000 <via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_04.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe iPhone Xs|Xs Max|Xr</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">299.000 <via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_01.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai Nghe SONY MDR-ZX110AP</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">440.000<via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_02.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Cáp Apple Type-C ra Lightning 1m</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">250.000<via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_03.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe không dây Bluetooth
+                            Airpods</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">3.290.000 <via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid" src="assets/img/accessory_04.jpg">
+                        <div
+                            class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-success text-white" href="shop-single.html"><i
+                                            class="far fa-heart"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                            class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Tai nghe iPhone Xs|Xs Max|Xr</a>
+                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                            <li>M/L/X/XL</li>
+                            <li class="pt-2">
+                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                            <li>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-warning fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                                <i class="text-muted fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <p class="text-center mb-0">299.000 <via>đ</via>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
         </div>
-    </section>
-    <!-- End Phụ kiện đi kèm -->
+
+
+    </div>
+</section>
+<!-- End Phụ kiện đi kèm -->
