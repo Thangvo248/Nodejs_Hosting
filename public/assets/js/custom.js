@@ -15,6 +15,7 @@ for(let i = 0; i < itemName.length; i++){
 var page3 = document.getElementById('page3');
 var page2 = document.getElementById('page2');
 var page1 = document.getElementById('page1');
+var findProducts=document.getElementById('findProducts');
 var contentPage3 = document.getElementById('content-page3');
 var contentPage2 = document.getElementById('content-page2');
 var contentPage1 = document.getElementById('content-page1');
@@ -45,4 +46,7 @@ page3.onclick = () => {
     contentPage3.style.display="grid"
     contentPage1.style.display="none";
 }
-
+findProducts.onclick=()=>{
+    var a= document.getElementById("query").value;
+    findProducts.href="/products?q="+a;
+}

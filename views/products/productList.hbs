@@ -52,12 +52,15 @@
     </div>
     <div class="product">
         <div class="nav">
-            <a href="#">Tất cả sản phẩm</a>
-            <a href="#">Điện thoại</a>
-            <a href="#">Laptop</a>
-            <a href="#">Phụ kiện</a>
-            <input type="text" placeholder="Tìm kiếm...">
-            <button type="button" class="btn-solid-primary">
+            <a href="/products">Tất cả sản phẩm</a>
+            {{#each product_types}}
+                <a href="/products?loaisp={{this.name}}">{{this.name}}</a>
+            {{/each}}
+            
+           <!-- <a href="#">Laptop</a>
+            <a href="#">Phụ kiện</a>-->
+            <input type="text" placeholder="Tìm kiếm..." id="query">
+            <button type="button" class="btn-solid-primary" id="findProdducts" onclick="location.href='/products?q='+document.getElementById('query').value">
                 <svg height="19" viewBox="0 0 19 19" width="19" class="shopee-svg-icon ">
                     <g fill-rule="evenodd" stroke="none" stroke-width="1">
                         <g transform="translate(-1016 -32)">
@@ -91,127 +94,46 @@
                 </div>
                 {{/each}}
             </div>
-            <div id="content-page2" class="grid-container">
+            <div div="row">
+                <ul class="pagination justify-content-center">
+                    {{#if haspreviouspage}}
+                        <li class="page-item">
+                            <a class="page-link" href="/products?page={{prevpage}}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="/products?page={{previouspage}}">{{previouspage}}</a>
+                        </li>
+                        
+                    {{/if}}
 
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_02.jpg" alt="">
-                    <p class="item-name">iPhone 13 Pro Max Chính hãng</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">47.090.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_03.jpg" alt="">
-                    <p class="item-name">LG Gram 2021 16ZD90P</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">38.990.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_03.png" alt="">
-                    <p class="item-name">Samsung Galaxy S21 Ultra 5G</p>
-                    <p><span>RAM 8GB</span> <span>SSD 128GB</span></p>
-                    <p class="price">14.990.000 </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_04.jpg" alt="">
-                    <p class="item-name">MacBook Pro 16 inch 2019 New</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">42.490.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_01.png" alt="">
-                    <p class="item-name">iPhone 11 Pro Max Chính hãng</p>
-                    <p><span>RAM 4GB</span> <span>SSD 64GB</span></p>
-                    <p class="price">9.990.000 <via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_02.png" alt="">
-                    <p class="item-name">Samsung Galaxy Note 20 Ultra</p>
-                    <p><span>RAM 8GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">8.100.000<via>đ</via>
-                    </p>
-                </div>
+                    <li class="page-item active">
+                        <a class="page-link" href="javascript:void(0)" tabindex="-1">{{currentpage}}</a>
+                    </li>
 
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/laptop_01.png" alt="">
-                    <p class="item-name">Asus Vivobook M513UA-L1230T</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">18.999.000 <via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/laptop_02.png" alt="">
-                    <p class="item-name">ACER Aspire 3 A315-34-P8VA</p>
-                    <p><span>RAM 4GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">22.490.000</p>
-                </div>
-            </div>
-            <div id="content-page3" class="grid-container">
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/laptop_01.png" alt="">
-                    <p class="item-name">Asus Vivobook M513UA-L1230T</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">18.999.000 <via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_02.jpg" alt="">
-                    <p class="item-name">iPhone 13 Pro Max Chính hãng</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">47.090.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/laptop_02.png" alt="">
-                    <p class="item-name">ACER Aspire 3 A315-34-P8VA</p>
-                    <p><span>RAM 4GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">22.490.000</p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_04.jpg" alt="">
-                    <p class="item-name">MacBook Pro 16 inch 2019 New</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">42.490.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/feature_prod_03.jpg" alt="">
-                    <p class="item-name">LG Gram 2021 16ZD90P</p>
-                    <p><span>RAM 8GB</span> <span>SSD 512GB</span></p>
-                    <p class="price">38.990.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_01.png" alt="">
-                    <p class="item-name">iPhone 11 Pro Max Chính hãng</p>
-                    <p><span>RAM 4GB</span> <span>SSD 64GB</span></p>
-                    <p class="price">9.990.000 <via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_02.png" alt="">
-                    <p class="item-name">Samsung Galaxy Note 20 Ultra</p>
-                    <p><span>RAM 8GB</span> <span>SSD 256GB</span></p>
-                    <p class="price">8.100.000<via>đ</via>
-                    </p>
-                </div>
-                <div class="item" onclick="location.href='productDetail'">
-                    <img src="assets/img/phone_03.png" alt="">
-                    <p class="item-name">Samsung Galaxy S21 Ultra 5G</p>
-                    <p><span>RAM 8GB</span> <span>SSD 128GB</span></p>
-                    <p class="price">14.990.000 </p>
-                </div>
-
+                    {{#if hasnextpage}}
+                        
+                        <li class="page-item">
+                            <a class="page-link" href="/products?page={{nextpage}}">{{nextpage}}</a>
+                        </li>
+                       <li class="page-item">
+                            <a class="page-link" href="/products?page={{nextpage}}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    {{/if}}
+                </ul>
             </div>
         </div>
-        <div class="pagination">
+
+       <!-- <div class="pagination">
             <p id="page1" class="page-number active">1</p>
             <p id="page2" class="page-number">2</p>
             <p id="page3" class="page-number">3</p>
-        </div>
+        </div>-->
 </section>
 <!-- End Content -->
 
