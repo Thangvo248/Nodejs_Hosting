@@ -1,4 +1,6 @@
 const Product = require('./productModel');
+const Comment= require('./commentModel');
+const Product_Type= require('./productTypeModel');
 const { mutipleMongooseToObject } = require('../util/mongooese');
 const { mongooseToObject } = require('../util/mongooese');
 
@@ -8,4 +10,15 @@ exports.list = async(filter, pageindex, itemperpage) => {
     .skip(pageindex*itemperpage)
     .limit(itemperpage)
     return products;
+}
+
+exports.list_product_type=async()=>{
+    const product_types=await Product_Type.find({});
+    return product_types;
+}
+
+exports.list_commnet= async(filter,indexcomment,itemperpage)=>{
+    const Comments= await Comment.find(filter)
+    .limit(indexcomment*itemperpage);
+    return Comments;
 }

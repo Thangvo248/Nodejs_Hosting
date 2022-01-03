@@ -254,11 +254,12 @@
                 </div>
             </div>
             <div class="cmt-content">
+                {{#each comments}}
                 <div class="cmt-block">
                     <div class="user">
-                        <img src="./assets/img/member_01.jpg" alt="" class="avt">
+                        <img src="{{this.avatar}}" alt="" class="avt">
                         <div class="username">
-                            <p>Võ Đức Thắng</p>
+                            <p>{{this.username}}</p>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
@@ -267,43 +268,14 @@
                         </div>
                     </div>
                     <div class="content">
-                        Sản phẩm tốt, chất lượng.
+                        {{this.content}}
                     </div>
                 </div>
-                <div class="cmt-block">
-                    <div class="user">
-                        <img src="./assets/img/member_02.jpg" alt="" class="avt">
-                        <div class="username">
-                            <p>Đinh Quang Thọ</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="content">
-                        Sản Phẩm tuyệt vời. Nên mua nha mọi người.
-                    </div>
-                </div>
-                <div class="cmt-block">
-                    <div class="user">
-                        <img src="./assets/img/member_03.jpg" alt="" class="avt">
-                        <div class="username">
-                            <p>Trần Thị Vi</p>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                    <div class="content">
-                        Sản phẩm chất lượng nhưng giá hơi cao.
-                    </div>
-                </div>
-                <p class="load-more">Load thêm...</p>
+                  {{/each}}
+                <p class="load-more" onclick="location.href='/products/productDetail/{{comments.0.product}}?indexcomment={{nextindexcomment}}'">Load thêm...</p>
             </div>
-        </div>
+            </div>
+          
         <div class="cmt-area">
             <p class="title">Đánh giá của bạn</p>
             <input type="text" class="input" placeholder="Tên của bạn">

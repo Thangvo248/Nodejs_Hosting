@@ -1,4 +1,5 @@
 const Product = require('./productModel');
+const Product_Type = require('./productTypeModel');
 const { mutipleMongooseToObject } = require('../util/mongooese');
 const { mongooseToObject } = require('../util/mongooese');
 const productservice= require('./productServices');
@@ -10,10 +11,14 @@ class ProductController {
     async list(req, res, next) {
         const page=+req.query.page||1;
         const q= req.query.q;
+        const loaisp= req.query.loaisp;
         const filter={};
         if(q)
         filter.name= RegExp(q,'i');
+        if(loaisp)
+        filter.product_type=loaisp;
         const totalProduct=await Product.count(filter);
+        const product_types=await productservice.list_product_type();
         const products = await productservice.list(filter, page-1, ITEM_PRODUCTS_PER_PAGE)
             .then(products => {
                 res.render('products/productList', {
@@ -26,12 +31,22 @@ class ProductController {
                     currentpage:page,
                     lastpage: Math.ceil(totalProduct / ITEM_PRODUCTS_PER_PAGE),
                     q:q,
+                    product_types: product_types
                 });
             })
             .catch(next);
     };
-    //[GET] 
 
+    //[GET] 
+    //async list_type(req,res,next){
+        //const product_types=await productservice.list_product_type()
+       // .then(product_types=>{
+           // res.render('products/productList',{
+                //product_types:mutipleMongooseToObject(product_types)
+           // });
+        //})
+       // .catch(next);
+  //  }
     async cart(req, res) {
         res.render('products/cart');
     };
