@@ -14,5 +14,6 @@ const Product = new Schema({
     slug: { type: String, slug: ["name", "description"]},
     createAt: {type: Date, default: Date.now},
     updateAt: {type: Date, default: Date.now},
+    deleteAt: {type:Date},
 })
 module.exports = mongoose.model('Product',Product);

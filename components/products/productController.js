@@ -6,7 +6,7 @@ class ProductController {
     //[GET] 
 
     async list(req, res, next) {
-        const products = await Product.find({})
+        const products = await Product.find({ deletedAt: null})
             .then(products => {
                 res.render('products/productList', {
                     products: mutipleMongooseToObject(products)
@@ -39,5 +39,11 @@ class ProductController {
     async receipt(req, res) {
         res.render('products/receipt');
     }
+    //Tho
+
+
+
+    
+    //Vi
 }
 module.exports = new ProductController();
