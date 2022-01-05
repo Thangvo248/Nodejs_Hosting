@@ -1,13 +1,15 @@
+const User = require('./userModel');
 
+class UserController {
+    async login(req, res, next) {
+        res.render('users/login');
+    }
+    async register(req, res, next) {
+         res.render('users/register');
+    }
+    async profile(req, res, next) {
+         res.render('users/profile');
+    }
+};
 
-exports.login= async(req,res)=>{
-    res.render('users/login');
-}
-
-exports.register= async(req,res)=>{
-    res.render('users/register');
-}
-
-exports.profile= async(req,res)=>{
-    res.render('users/profile');
-}
+module.exports = new UserController();
