@@ -301,21 +301,7 @@ Custom Css
     display: block;
     margin-bottom: 30px;
 }
-.form_login input[type=text], .form_login input[type=password] {
-    font-family: Poppins-Regular;
-    font-size: 16px;
-    color: rgb(7, 7, 7);
-    line-height: 1.2;
-    display: block;
-    width: calc(100% - 10px);
-    height: 45px;
-    background: 0 0;
-    padding: 10px 0;
-    border-bottom: 2px solid rgba(255,255,255,.24)!important;
-    border: 0;
-    outline: 0;
-    margin: 10px;
-}
+
 .form_login input[type=submit] {
     font-size: 16px;
     color: #555;

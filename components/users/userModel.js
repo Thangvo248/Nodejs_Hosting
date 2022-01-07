@@ -1,24 +1,24 @@
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var bcrypt = require('bcrypt');
+const mongooseDelete = require('mongoose-delete');
+const slug = require('mongoose-slug-generator');
 
-const login = new Schema({
-    email: { type: String, default: ''},
-    password: { type: String, default: ''},
-
-    loginAt: { type: Date, default: Date.now},
-    logoutAt: { type: Date, default: Date.now},
-    action: { type: String, default: 'System'},
-    
+const User = new Schema({
+   name: { type: String, default: '' },
+   phone: { type: Number, default: '' },
+   email: { type: String, default: '' },
+   gender: { type: String, default: '' },
+   dateofbirth: { type: Date, default: '' },
+   profession: { type: String, default: '' },
+   address: { type: String, default: '' },
+   loginAt: { type: Date, default: Date.now },
+   logoutAt: { type: Date, default: Date.now },
+   roles: { type: String, default: '' },
+   slug: { type: String, slug: ["name","_id"], unique: true },
 });
- login.methods.encryptPassword = function(password){
-    return bcrypt.hashSync(password, this.password);
-
-
- };
- login.methods.validPassword = function(password){
-    return bcrypt.compareSync(password, bcrypt.genSaltSync(5),null);
-
- };
-
-module.exports = mongoose.model('login', login)
+User.plugin(mongooseDelete, {
+   deleteAt: true,
+   overrideMethods: 'all'
+});
+module.exports = mongoose.model('User', User)
