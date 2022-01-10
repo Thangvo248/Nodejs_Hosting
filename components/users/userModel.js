@@ -2,20 +2,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongooseDelete = require('mongoose-delete');
-const slug = require('mongoose-slug-generator');
+
 
 const User = new Schema({
-   name: { type: String, default: '' },
-   phone: { type: Number, default: '' },
-   email: { type: String, default: '' },
-   gender: { type: String, default: '' },
-   dateofbirth: { type: Date, default: '' },
-   profession: { type: String, default: '' },
-   address: { type: String, default: '' },
+   name: { type: String, },
+   phone: { type: Number, },
+   email: { type: String, },
+   gender: { type: String, },
+   dateofbirth: { type: Date, default: '10/10/2010' },
+   profession: { type: String, },
+   address: { type: String, },
    loginAt: { type: Date, default: Date.now },
    logoutAt: { type: Date, default: Date.now },
-   roles: { type: String, default: '' },
-   slug: { type: String, slug: ["name","_id"], unique: true },
+   roles: { type: String, },
 });
 User.plugin(mongooseDelete, {
    deleteAt: true,

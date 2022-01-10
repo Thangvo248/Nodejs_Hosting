@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -12,11 +12,13 @@
     "body-parser": "^1.19.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "debug": "~2.6.9",
     "express": "^4.16.4",
     "express-handlebars": "^6.0.2",
     "hbs": "~4.0.4",
-    "http-errors": "~1.6.3",
+    "http-errors": "^1.6.3",
+    "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
     "mongoose-delete": "^0.5.4",
