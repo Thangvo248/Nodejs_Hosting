@@ -31,6 +31,7 @@ class ProductController {
                     currentpage:page,
                     lastpage: Math.ceil(totalProduct / ITEM_PRODUCTS_PER_PAGE),
                     q:q,
+                    product_type:loaisp,
                     product_types: product_types
                 });
             })

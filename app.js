@@ -10,6 +10,8 @@ const usersRouter = require('./components/users');
 const productsRouter = require('./components/products');
 const contactRouter =  require('./routes/contact');
 const db =require('./conf/db/index');
+const handlebarhelpers = require('handlebars-helpers')();
+
 
 //connect to db
 
@@ -21,9 +23,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs',exphbs({
   extname: 'hbs',
   defaultLayout: 'layout',
-  layoutsDir: path.join(__dirname,'/view/layout')
+  layoutsDir: path.join(__dirname,'/view/layout',),
+  helpers:handlebarhelpers,
 }))*/
 app.set('view engine', 'hbs');
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
