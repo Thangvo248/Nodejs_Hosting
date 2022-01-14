@@ -71,5 +71,11 @@ class ProductController {
     async receipt(req, res) {
         res.render('products/receipt');
     }
+    //Tho
+
+
+
+    
+    //Vi
 }
 module.exports = new ProductController();
