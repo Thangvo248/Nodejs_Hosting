@@ -7,7 +7,7 @@ async function connect(){
         });
         console.log('thanhcong');
     } catch (error) {
-        console.log('fails');
+        console.log('that bai');
     }
 }
 

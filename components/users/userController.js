@@ -2,7 +2,7 @@ const Account = require('../users/AccountModel');
 const User = require('../users/userModel');
 const { userValidate } = require('../../conf/db/validation');
 const createError = require('http-errors');
-const {signAccessToken}= require('../../middlewares/authJwt');
+const { signAccessToken, verifyAccessToken, signRefreshToken, verifyRefereshToken } = require('../../middlewares/authJwt');
 class UserController {
 
     async submitLogin(req, res, next) {
@@ -12,13 +12,13 @@ class UserController {
             const { email, password } = req.body;
 
             const { error } = userValidate(req.body);
-             if (error) {
-                 throw createError(error.details[0].message);
-             }
+            if (error) {
+                throw createError(error.details[0].message);
+            }
             const user = await Account.findOne({
                 email: email
             });
-            if (!user) {    
+            if (!user) {
                 throw createError.NotFound('Tai khoan chua duoc dang ky');
             }
             const isValid = await user.isCheckPassword(password);
@@ -26,7 +26,9 @@ class UserController {
                 throw createError.Unauthorized();
             }
             const accessToken = await signAccessToken(user._id);
-            res.redirect('/');
+            const refreshToken = await signRefreshToken(user._id);
+            res.json({ accessToken, refreshToken })
+            // res.redirect('/');
         }
         catch (error) {
             next(error);
@@ -46,9 +48,9 @@ class UserController {
         try {
             const { email, password } = req.body;
             const { error } = userValidate(req.body);
-           /* if (error) {
-                throw createError(error.details[0].message);
-            }*/
+            /* if (error) {
+                 throw createError(error.details[0].message);
+             }*/
             const isExits = await Account.findOne({
                 email: email
             });
@@ -60,17 +62,20 @@ class UserController {
                 password: password
             })
             const SaveNewaccount = await Newaccount.save();
-            const user = new User ({
+            const user = new User({
                 name: req.body.name,
                 email: req.body.email,
                 phone: req.body.phone,
             })
-            const newuser= await user.save();
+            const newuser = await user.save();
             res.redirect('/users/login')
         }
         catch (error) {
             next(error);
         }
+    }
+    async refershToken(req, res, next) {
+
     }
 };
 

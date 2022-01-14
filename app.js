@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const exphbs = require('express-handlebars');
-
+const dotenv = require('dotenv');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./components/users');
 const productsRouter = require('./components/products');
@@ -14,6 +14,7 @@ const db =require('./conf/db/index');
 //connect to db
 
 const app = express();
+dotenv.config();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

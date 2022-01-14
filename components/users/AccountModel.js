@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const Account = new Schema({
    email: { type: String, default: '' },
    password: { type: String, default: '' },
+   role:{type: String, default:'user'},
    loginAt: { type: Date, default: Date.now },
    logoutAt: { type: Date, default: Date.now },
 });
