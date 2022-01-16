@@ -18,70 +18,96 @@
 
 <!-- Start Content -->
 <section class="product-list-content">
-    <div class="category">
-        <h2 class="title">Danh mục</h2>
-        {{#each product_types}}
-        <div class="category-item">
-            <h3 class="item-name">{{this.name}}</h3>
-            <div class="item-cat">
-                {{#each this.trademark}}
-                <input type="checkbox" id="html" name="fav_language" value="{{this}}">
-                <label for="html">{{this}}</label><br>
-                {{/each}}
-            </div>
-        </div>
-        {{/each}}
-    </div>
     <div class="product">
-        <div class="nav">
-            <span>
+        <div class="row">
+            <!--filter price range -->
+            <span class=" product_type col-md-2">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?sort='+this.options[this.selectedIndex].value">
+                {{#if product_type}}
+                <option value="{{product_type}}" selected hidden>{{product_type}}</option>
+                {{/if}}
+                <option value="">--Bộ lọc giá--</option>
+                <option value="1">Theo giá tăng dần</option>
+                <option value="2">Theo giá giảm dần</option>
+                </select>
+            </span>
+             <!--product types -->
+            <span class=" price_product col-md-2">
             <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype='+this.options[this.selectedIndex].value">
                 {{#if product_type}}
                 <option value="{{product_type}}" selected hidden>{{product_type}}</option>
                 {{/if}}
-                <option value="">loại sản phẩm</option>
+                <option value="">--loại sản phẩm--</option>
                 {{#each product_types}}
                      <option value="{{this.name}}">{{this.name}}</option>
                 {{/each}}
             </select>
              </span>
+             <!--trade mark -->
+            <span class=" price_product col-md-2">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark='+this.options[this.selectedIndex].value">
+                {{#each product_type_trade}}
+                    <option value="{{this}}" selected hidden>{{this}}</option>
+                {{/each}}
+                <option value="">--nhãn hiệu--</option>
+                
+                </select>
+            </span>
+             <!--price -->
+            <span class=" price_product col-md-2">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?'+this.options[this.selectedIndex].value">
+                {{#if price1}}
+                {{#if price2}}
+                <option value="price1={{price1}}&price2={{price2}}" selected hidden>Dưới {{price2}}</option>
+                {{else}}
+                <option value="price1={{price1}}" selected hidden>Trên {{price1}}</option>
+                {{/if}}
+                {{/if}}
+                <option value="">--Giá sản phẩm--</option>
+                <option value="price1=0&price2=100000">Dưới 100.000đ</option>
+                <option value="price1=100000&price2=500000">Dưới 500.000đ</option>
+                <option value="price1=500000&price2=1000000">Dưới 1.000.000đ</option>
+                <option value="price1=1000000&price2=5000000">Dưới 5.000.000đ</option>
+                <option value="price1=5000000&price2=10000000">Dưới 10.000.000đ</option>
+                <option value="price1=10000000">Trên 10.000.000đ</option>
+                
+                </select>
+            </span>
            <!-- <a href="#">Laptop</a>
             <a href="#">Phụ kiện</a>-->
-            <input type="text" placeholder="Tìm kiếm..." id="query">
-            <button type="button" class="btn-solid-primary" id="findProdducts" onclick="location.href='/products?q='+document.getElementById('query').value">
-                <svg height="19" viewBox="0 0 19 19" width="19" class="shopee-svg-icon ">
-                    <g fill-rule="evenodd" stroke="none" stroke-width="1">
-                        <g transform="translate(-1016 -32)">
-                            <g>
-                                <g transform="translate(405 21)">
-                                    <g transform="translate(611 11)">
-                                        <path
-                                            d="m8 16c4.418278 0 8-3.581722 8-8s-3.581722-8-8-8-8 3.581722-8 8 3.581722 8 8 8zm0-2c-3.3137085 0-6-2.6862915-6-6s2.6862915-6 6-6 6 2.6862915 6 6-2.6862915 6-6 6z">
-                                        </path>
-                                        <path
-                                            d="m12.2972351 13.7114222 4.9799555 4.919354c.3929077.3881263 1.0260608.3842503 1.4141871-.0086574.3881263-.3929076.3842503-1.0260607-.0086574-1.414187l-4.9799554-4.919354c-.3929077-.3881263-1.0260608-.3842503-1.4141871.0086573-.3881263.3929077-.3842503 1.0260608.0086573 1.4141871z">
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                </svg>
-            </button>
+            <div class="col-md-2">
+                <div class="container-4">
+                    <input type="search" placeholder="Tìm kiếm..." id="query">
+                    <button class="icon" id="findProdducts" onclick="location.href='/products?q='+document.getElementById('query').value"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
         </div>
-        <div>
-
-            <div id="content-page1" class="grid-container">
+        <br>
+        <div class="row">
                 {{#each products}}
-                <div class="row align-items-start">
-                        <div class="item" onclick="location.href='/products/productDetail/{{this.slug}}'">
-                            <img src="{{this.image_url}}" alt="{{this.name}}">
-                            <p class="item-name">{{this.name}}</p>
-                            <p class="price" id="currency">{{this.price}}
+                <div class="col-md-3 " onclick="location.href='/products/productDetail/{{this.slug}}'">
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid" src="{{this.image_url}}">
                         </div>
+                        <div class="card-body">
+                            <div href="/products/productDetail/{{this.slug}}" class="h3 product_name">{{this.name}}</div>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0 price">{{this.price}}</p>
+                        </div>
+                    </div>
                 </div>
                 {{/each}}
-            </div>
-            <div div="row">
+        </div>
+        <div div="row">
                 {{#if q}}
                 <ul class="pagination justify-content-center">
                     {{#if haspreviouspage}}
@@ -145,8 +171,8 @@
                     {{/if}}
                 </ul>
                 {{/if}}
-            </div>
         </div>
+    </div>
 
        <!-- <div class="pagination">
             <p id="page1" class="page-number active">1</p>
@@ -187,19 +213,19 @@
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-3 p-md-5">
-                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_01.png"
+                                            <a onclick="location.href='/products?trademark=Apple'"><img class="img-fluid brand-img" src="assets/img/brand_01.png"
                                                     alt="Brand Logo"></a>
                                         </div>
                                         <div class="col-3 p-md-5">
-                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
+                                            <a onclick="location.href='/products?trademark=Samsung'"><img class="img-fluid brand-img" src="assets/img/brand_02.png"
                                                     alt="Brand Logo"></a>
                                         </div>
                                         <div class="col-3 p-md-5">
-                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
+                                            <a onclick="location.href='/products?trademark=Xiaomi'"><img class="img-fluid brand-img" src="assets/img/brand_03.png"
                                                     alt="Brand Logo"></a>
                                         </div>
                                         <div class="col-3 p-md-5">
-                                            <a href="#"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
+                                            <a onclick="location.href='/products?trademark=Realme'"><img class="img-fluid brand-img" src="assets/img/brand_04.png"
                                                     alt="Brand Logo"></a>
                                         </div>
                                     </div>

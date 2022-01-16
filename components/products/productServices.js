@@ -23,8 +23,8 @@ exports.list_commnet= async(filter,indexcomment,itemperpage)=>{
     return Comments;
 }
 // list 3 products for home page
-exports.listnewproducts= async()=>{
-    const products= await Product.find({})
+exports.listnewproducts= async(filter)=>{
+    const products= await Product.find(filter)
     .limit(3);
     return products;
 }
