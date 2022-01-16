@@ -11,14 +11,20 @@ exports.list = async(filter, pageindex, itemperpage) => {
     .limit(itemperpage)
     return products;
 }
-
+// list product tyepe
 exports.list_product_type=async()=>{
     const product_types=await Product_Type.find({});
     return product_types;
 }
-
+// list comment
 exports.list_commnet= async(filter,indexcomment,itemperpage)=>{
     const Comments= await Comment.find(filter)
     .limit(indexcomment*itemperpage);
     return Comments;
+}
+// list 3 products for home page
+exports.listnewproducts= async()=>{
+    const products= await Product.find({})
+    .limit(3);
+    return products;
 }

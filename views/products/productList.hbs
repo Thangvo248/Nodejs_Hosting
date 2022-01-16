@@ -25,7 +25,7 @@
             <h3 class="item-name">{{this.name}}</h3>
             <div class="item-cat">
                 {{#each this.trademark}}
-                <input type="radio" id="html" name="fav_language" value="{{this}}">
+                <input type="checkbox" id="html" name="fav_language" value="{{this}}">
                 <label for="html">{{this}}</label><br>
                 {{/each}}
             </div>
@@ -35,14 +35,13 @@
     <div class="product">
         <div class="nav">
             <span>
-            <select class="form-select" aria-label="Default select example" onchange="location.href='/products?loaisp='+this.options[this.selectedIndex].value">
-                <option value="">Tất cả sản phâm</option>
+            <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype='+this.options[this.selectedIndex].value">
+                {{#if product_type}}
+                <option value="{{product_type}}" selected hidden>{{product_type}}</option>
+                {{/if}}
+                <option value="">loại sản phẩm</option>
                 {{#each product_types}}
-                    {{#if this.name }}
-                    <option value="{{this.name}}" selected>{{this.name}}</option>
-                    {{else}}
                      <option value="{{this.name}}">{{this.name}}</option>
-                    {{/if}}
                 {{/each}}
             </select>
              </span>
@@ -77,8 +76,7 @@
                         <div class="item" onclick="location.href='/products/productDetail/{{this.slug}}'">
                             <img src="{{this.image_url}}" alt="{{this.name}}">
                             <p class="item-name">{{this.name}}</p>
-                            <p class="price">{{this.price}}<via>đ</via>
-                            </p>
+                            <p class="price" id="currency">{{this.price}}
                         </div>
                 </div>
                 {{/each}}
@@ -272,4 +270,13 @@
         </div>
     </div>
 </section>
+ <script>
+        const x = document.querySelectorAll(".price");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num+"đ";
+            x[i].classList.add("currSign");
+        }
+    </script>
 <!--End Brands-->
