@@ -7,8 +7,8 @@ const { mongooseToObject } = require('../util/mongooese');
 //select all product in tvtshop
 exports.list = async(filter, pageindex, itemperpage) => {
     const products = await Product.find(filter)
-    .skip(pageindex*itemperpage)
-    .limit(itemperpage)
+    .skip(pageindex*itemperpage)//xoa
+    .limit(itemperpage)//3
     return products;
 }
 // list product tyepe

@@ -1,34 +1,29 @@
 const Account = require('../users/AccountModel');
 const User = require('../users/userModel');
-const { userValidate } = require('../../conf/db/validation');
+const { signAccessToken, verifyAccessToken } = require('../../middlewares/authJwt');
+const { create } = require('hbs');
 const createError = require('http-errors');
-const { signAccessToken, verifyAccessToken, signRefreshToken, verifyRefereshToken } = require('../../middlewares/authJwt');
 class UserController {
 
     async submitLogin(req, res, next) {
         try {
-
-
             const { email, password } = req.body;
-
-            const { error } = userValidate(req.body);
-            if (error) {
-                throw createError(error.details[0].message);
-            }
             const user = await Account.findOne({
                 email: email
             });
             if (!user) {
-                throw createError.NotFound('Tai khoan chua duoc dang ky');
+                throw createError('Email không chính xác');
             }
             const isValid = await user.isCheckPassword(password);
             if (!isValid) {
-                throw createError.Unauthorized();
+                throw createError('Sai mật khẩu');
             }
             const accessToken = await signAccessToken(user._id);
-            const refreshToken = await signRefreshToken(user._id);
-            res.json({ accessToken, refreshToken })
-            // res.redirect('/');
+            if(!accessToken) {
+                throw createError('Đăng nhập không thành công, bạn vui lòng thử lại');
+            }
+            res.cookie('access_token',accessToken,{httpOnly: true});
+            res.redirect('/');
         }
         catch (error) {
             next(error);
@@ -47,15 +42,11 @@ class UserController {
     async submitregister(req, res, next) {
         try {
             const { email, password } = req.body;
-            const { error } = userValidate(req.body);
-            /* if (error) {
-                 throw createError(error.details[0].message);
-             }*/
             const isExits = await Account.findOne({
                 email: email
             });
             if (isExits) {
-                throw console.log('Da co loi xay ra');
+                throw createError('Email đã được đăng ký');
             }
             const Newaccount = new Account({
                 email: email,
@@ -74,9 +65,7 @@ class UserController {
             next(error);
         }
     }
-    async refershToken(req, res, next) {
-
-    }
+    
 };
 
 module.exports = new UserController();

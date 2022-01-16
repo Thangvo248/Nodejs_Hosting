@@ -38,6 +38,7 @@ class ProductController {
             })
             .catch(next);
     };
+<<<<<<< HEAD
 //get 3 product to show panner in hame page
     async newproducts(req,res){
         const producttypes= await productservice.list_product_type();
@@ -52,6 +53,20 @@ class ProductController {
     async cart(req, res) {
         res.render('products/cart');
     };
+=======
+
+    //[GET] 
+    //async list_type(req,res,next){
+        //const product_types=await productservice.list_product_type()
+       // .then(product_types=>{
+           // res.render('products/productList',{
+                //product_types:mutipleMongooseToObject(product_types)
+           // });
+        //})
+       // .catch(next);
+  //  }
+    
+>>>>>>> 2e2678b718be6d9512dc0808579a347b7092e974
     //[POST]
     async add(req, res) {
 
