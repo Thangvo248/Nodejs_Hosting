@@ -48,9 +48,7 @@ class ProductController {
         //})
        // .catch(next);
   //  }
-    async cart(req, res) {
-        res.render('products/cart');
-    };
+    
     //[POST]
     async add(req, res) {
 

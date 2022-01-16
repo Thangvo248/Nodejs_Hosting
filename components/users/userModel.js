@@ -14,7 +14,7 @@ const User = new Schema({
    address: { type: String, },
    loginAt: { type: Date, default: Date.now },
    logoutAt: { type: Date, default: Date.now },
-   roles: { type: String, },
+   roles: { type: String, default: 'User'},
 });
 User.plugin(mongooseDelete, {
    deleteAt: true,
