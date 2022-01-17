@@ -20,19 +20,137 @@
 <section class="product-list-content">
     <div class="product">
         <div class="row">
-            <!--filter price range -->
-            <span class=" product_type col-md-2">
+            <!--sort price -->
+            {{#if product_type}}
+            {{#if trademark}}
+            {{#if price1}}
+            {{#if price2}}
+             <span class=" product_type col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&price1={{price1}}&price2={{price2}}&trademark={{trademark}}&sort='+this.options[this.selectedIndex].value">
+                <option value="0">--Bộ lọc giá--</option>
+                {{#if sort}}
+                <option value="1" selected>Theo giá tăng dần</option>
+                {{else}}
+                <option value="1">Theo giá tăng dần</option>
+                {{/if}}
+                {{#if sort1}}
+                <option value="-1" selected>Theo giá giảm dần</option>
+                {{else}}
+                <option value="-1">Theo giá giảm dần</option>
+                {{/if}}
+                </select>
+            </span>
+            {{else}}
+            <span class=" product_type col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&price1={{price1}}&trademark={{trademark}}&sort='+this.options[this.selectedIndex].value">
+                <option value="0">--Bộ lọc giá--</option>
+                {{#if sort}}
+                <option value="1" selected>Theo giá tăng dần</option>
+                {{else}}
+                <option value="1">Theo giá tăng dần</option>
+                {{/if}}
+                {{#if sort1}}
+                <option value="-1" selected>Theo giá giảm dần</option>
+                {{else}}
+                <option value="-1">Theo giá giảm dần</option>
+                {{/if}}
+                </select>
+            </span>
+            {{/if}}
+            {{else}}
+            <span class=" product_type col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&trademark={{trademark}}&sort='+this.options[this.selectedIndex].value">
+                <option value="0">--Bộ lọc giá--</option>
+                {{#if sort}}
+                <option value="1" selected>Theo giá tăng dần</option>
+                {{else}}
+                <option value="1">Theo giá tăng dần</option>
+                {{/if}}
+                {{#if sort1}}
+                <option value="-1" selected>Theo giá giảm dần</option>
+                {{else}}
+                <option value="-1">Theo giá giảm dần</option>
+                {{/if}}
+                </select>
+            </span>
+            {{/if}}
+            {{else}}
+            <span class=" product_type col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&sort='+this.options[this.selectedIndex].value">
+                <option value="0">--Bộ lọc giá--</option>
+                {{#if sort}}
+                <option value="1" selected>Theo giá tăng dần</option>
+                {{else}}
+                <option value="1">Theo giá tăng dần</option>
+                {{/if}}
+                {{#if sort1}}
+                <option value="-1" selected>Theo giá giảm dần</option>
+                {{else}}
+                <option value="-1">Theo giá giảm dần</option>
+                {{/if}}
+                </select>
+            </span>
+            {{/if}}
+            {{else}}
+            <span class=" product_type col-md-2 groove">
                 <select class="form-select" aria-label="Default select example" onchange="location.href='/products?sort='+this.options[this.selectedIndex].value">
+                <option value="0">--Bộ lọc giá--</option>
+                {{#if sort}}
+                <option value="1" selected>Theo giá tăng dần</option>
+                {{else}}
+                <option value="1">Theo giá tăng dần</option>
+                {{/if}}
+                {{#if sort1}}
+                <option value="-1" selected>Theo giá giảm dần</option>
+                {{else}}
+                <option value="-1">Theo giá giảm dần</option>
+                {{/if}}
+                </select>
+            </span>
+            {{/if}}
+             <!--product types -->
+             {{#if trademark}}
+             {{#if price1}}
+             {{#if price2}}
+             <span class=" price_product col-md-2 groove">
+            <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark={{trademark}}&proce1={{price1}}&price2={{price2}}&producttype='+this.options[this.selectedIndex].value">
                 {{#if product_type}}
                 <option value="{{product_type}}" selected hidden>{{product_type}}</option>
                 {{/if}}
-                <option value="">--Bộ lọc giá--</option>
-                <option value="1">Theo giá tăng dần</option>
-                <option value="2">Theo giá giảm dần</option>
-                </select>
-            </span>
-             <!--product types -->
-            <span class=" price_product col-md-2">
+                <option value="">--loại sản phẩm--</option>
+                {{#each product_types}}
+                     <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+             </span>
+             {{else}}
+              <span class=" price_product col-md-2 groove">
+            <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark={{trademark}}&proce1={{price1}}&producttype='+this.options[this.selectedIndex].value">
+                {{#if product_type}}
+                <option value="{{product_type}}" selected hidden>{{product_type}}</option>
+                {{/if}}
+                <option value="">--loại sản phẩm--</option>
+                {{#each product_types}}
+                     <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+             </span>
+             {{/if}}
+             {{else}}
+              <span class=" price_product col-md-2 groove">
+            <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark={{trademark}}&producttype='+this.options[this.selectedIndex].value">
+                {{#if product_type}}
+                <option value="{{product_type}}" selected hidden>{{product_type}}</option>
+                {{/if}}
+                <option value="">--loại sản phẩm--</option>
+                {{#each product_types}}
+                     <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+             </span>
+             {{/if}}
+             {{else}}
+            <span class=" price_product col-md-2 groove">
             <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype='+this.options[this.selectedIndex].value">
                 {{#if product_type}}
                 <option value="{{product_type}}" selected hidden>{{product_type}}</option>
@@ -43,18 +161,114 @@
                 {{/each}}
             </select>
              </span>
+             {{/if}}
              <!--trade mark -->
-            <span class=" price_product col-md-2">
-                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark='+this.options[this.selectedIndex].value">
-                {{#each product_type_trade}}
-                    <option value="{{this}}" selected hidden>{{this}}</option>
-                {{/each}}
+             {{#if product_type}}
+             {{#if price1}}
+             {{#if price2}}
+              <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&price1={{price1}}&price2={{price2}}&trademark='+this.options[this.selectedIndex].value">
+                {{#if trademark}}
+                     <option value="{trademark}}" selected hidden>{{trademark}}</option>
+                {{/if}}
                 <option value="">--nhãn hiệu--</option>
-                
+                {{#each product_type_trade}}
+                    {{#each this.trademark}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                {{/each}}
+                </select>
+              </span>
+             {{else}}
+              <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&price1={{price1}}&trademark='+this.options[this.selectedIndex].value">
+                {{#if trademark}}
+                     <option value="{trademark}}" selected hidden>{{trademark}}</option>
+                {{/if}}
+                <option value="">--nhãn hiệu--</option>
+                {{#each product_type_trade}}
+                    {{#each this.trademark}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                {{/each}}
+                </select>
+              </span>
+             {{/if}}
+             {{else}}
+              <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&trademark='+this.options[this.selectedIndex].value">
+                {{#if trademark}}
+                     <option value="{trademark}}" selected hidden>{{trademark}}</option>
+                {{/if}}
+                <option value="">--nhãn hiệu--</option>
+                {{#each product_type_trade}}
+                    {{#each this.trademark}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                {{/each}}
+                </select>
+              </span>
+             {{/if}}
+             {{else}}
+            <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?trademark='+this.options[this.selectedIndex].value">
+                {{#if trademark}}
+                     <option value="{trademark}}" selected hidden>{{trademark}}</option>
+                {{/if}}
+                <option value="">--nhãn hiệu--</option>
+                {{#each product_type_trade}}
+                    {{#each this.trademark}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                {{/each}}
                 </select>
             </span>
-             <!--price -->
-            <span class=" price_product col-md-2">
+            {{/if}}
+             <!--price range-->
+             {{#if product_type}}
+             {{#if trademark}}
+              <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&trademark={{trademark}}&'+this.options[this.selectedIndex].value">
+                {{#if price1}}
+                {{#if price2}}
+                <option value="price1={{price1}}&price2={{price2}}" selected hidden>Dưới {{price2}}</option>
+                {{else}}
+                <option value="price1={{price1}}" selected hidden>Trên {{price1}}</option>
+                {{/if}}
+                {{/if}}
+                <option value="">--Giá sản phẩm--</option>
+                <option value="price1=0&price2=100000">Dưới 100.000đ</option>
+                <option value="price1=100000&price2=500000">Dưới 500.000đ</option>
+                <option value="price1=500000&price2=1000000">Dưới 1.000.000đ</option>
+                <option value="price1=1000000&price2=5000000">Dưới 5.000.000đ</option>
+                <option value="price1=5000000&price2=10000000">Dưới 10.000.000đ</option>
+                <option value="price1=10000000">Trên 10.000.000đ</option>
+                
+                </select>
+              </span>
+             {{else}}
+             <span class=" price_product col-md-2 groove">
+                <select class="form-select" aria-label="Default select example" onchange="location.href='/products?producttype={{product_type}}&'+this.options[this.selectedIndex].value">
+                {{#if price1}}
+                {{#if price2}}
+                <option value="price1={{price1}}&price2={{price2}}" selected hidden>Dưới {{price2}}</option>
+                {{else}}
+                <option value="price1={{price1}}" selected hidden>Trên {{price1}}</option>
+                {{/if}}
+                {{/if}}
+                <option value="">--Giá sản phẩm--</option>
+                <option value="price1=0&price2=100000">Dưới 100.000đ</option>
+                <option value="price1=100000&price2=500000">Dưới 500.000đ</option>
+                <option value="price1=500000&price2=1000000">Dưới 1.000.000đ</option>
+                <option value="price1=1000000&price2=5000000">Dưới 5.000.000đ</option>
+                <option value="price1=5000000&price2=10000000">Dưới 10.000.000đ</option>
+                <option value="price1=10000000">Trên 10.000.000đ</option>
+                
+                </select>
+              </span>
+             {{/if}}
+             {{else}}
+            <span class=" price_product col-md-2 groove">
                 <select class="form-select" aria-label="Default select example" onchange="location.href='/products?'+this.options[this.selectedIndex].value">
                 {{#if price1}}
                 {{#if price2}}
@@ -73,9 +287,10 @@
                 
                 </select>
             </span>
+            {{/if}}
            <!-- <a href="#">Laptop</a>
             <a href="#">Phụ kiện</a>-->
-            <div class="col-md-2">
+            <div class="col-md-2 groove">
                 <div class="container-4">
                     <input type="search" placeholder="Tìm kiếm..." id="query">
                     <button class="icon" id="findProdducts" onclick="location.href='/products?q='+document.getElementById('query').value"><i class="fa fa-search"></i></button>
@@ -85,13 +300,13 @@
         <br>
         <div class="row">
                 {{#each products}}
-                <div class="col-md-3 " onclick="location.href='/products/productDetail/{{this.slug}}'">
+                <div class="col-md-3 groove" onclick="location.href='/products/productDetail/{{this.slug}}'">
                     <div class="card mb-4 product-wap rounded-0">
                         <div class="card rounded-0">
                             <img class="card-img rounded-0 img-fluid" src="{{this.image_url}}">
                         </div>
                         <div class="card-body">
-                            <div href="/products/productDetail/{{this.slug}}" class="h3 product_name">{{this.name}}</div>
+                            <div href="/products/productDetail/{{this.slug}}" class="h3 text-center mb-0 product_name">{{this.name}}</div>
                             <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                 <li class="pt-2">
                                     <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -101,7 +316,8 @@
                                     <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
                                 </li>
                             </ul>
-                            <p class="text-center mb-0 price">{{this.price}}</p>
+                            <p class="h3 text-center mb-0 price">{{this.price}}</p>
+                            <p class="text-center text-muted mb-1">sản phẩm còn lại:{{this.inventory}}</p>
                         </div>
                     </div>
                 </div>
@@ -296,13 +512,13 @@
         </div>
     </div>
 </section>
- <script>
+<script>
         const x = document.querySelectorAll(".price");
         for (let i = 0, len = x.length; i < len; i++) {
             let num = Number(x[i].innerHTML)
-                      .toLocaleString('en');
+                      .toLocaleString('en-US');
             x[i].innerHTML = num+"đ";
             x[i].classList.add("currSign");
         }
-    </script>
+</script>
 <!--End Brands-->
