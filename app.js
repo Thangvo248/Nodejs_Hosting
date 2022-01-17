@@ -10,7 +10,6 @@ const usersRouter = require('./components/users');
 const productsRouter = require('./components/products');
 const contactRouter =  require('./routes/contact');
 const db =require('./conf/db/index');
-
 //connect to db
 
 const app = express();

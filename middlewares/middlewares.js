@@ -1,12 +1,11 @@
-const create = require('http-errors');
-const Account = require('../components/users/AccountModel')
+
 const User = require('../components/users/userModel');
 
 
 const checkUser = async (req, res, next) => {
   try {
     const user = await User.findOne(req.payload);
-    const role = user.role  ;
+    const role = user.role;
     if (role === 'User' || role === 'Admin') {
       next();
     }

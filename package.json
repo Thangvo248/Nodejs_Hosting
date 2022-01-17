@@ -6,8 +6,6 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
     "cookie-parser": "~1.4.4",
@@ -19,10 +17,10 @@
     "express": "^4.16.4",
     "express-handlebars": "^6.0.2",
     "express-validator": "^6.14.0",
-    "git": "^0.1.5",
     "hbs": "^4.2.0",
     "http-errors": "^1.6.3",
     "joi": "^17.5.0",
+    "jquery-validation": "^1.19.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
     "mongoose-delete": "^0.5.4",

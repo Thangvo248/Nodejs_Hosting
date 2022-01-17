@@ -1,7 +1,4 @@
 const jwt = require("jsonwebtoken");
-const create = require('http-errors');
-const Account = require('../components/users/AccountModel');
-
 const signAccessToken = async (userId) => {
   return new Promise((resolve, reject) => {
     const payload = {

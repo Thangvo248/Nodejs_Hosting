@@ -3,6 +3,7 @@ const User = require('../users/userModel');
 const { signAccessToken, verifyAccessToken } = require('../../middlewares/authJwt');
 const { create } = require('hbs');
 const createError = require('http-errors');
+const { userValidate } = require('../../conf/db/validation');
 class UserController {
 
     async submitLogin(req, res, next) {
@@ -11,6 +12,10 @@ class UserController {
             const user = await Account.findOne({
                 email: email
             });
+            const { error } = userValidate(req.body);
+             if (error) {
+                 throw createError('Bạn nhập sai email, password');
+             }
             if (!user) {
                 throw createError('Email không chính xác');
             }
