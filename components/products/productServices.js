@@ -5,10 +5,11 @@ const { mutipleMongooseToObject } = require('../util/mongooese');
 const { mongooseToObject } = require('../util/mongooese');
 
 //select all product in tvtshop
-exports.list = async(filter, pageindex, itemperpage) => {
+exports.list = async(filter, pageindex, itemperpage,sort) => {
     const products = await Product.find(filter)
-    .skip(pageindex*itemperpage)//xoa
-    .limit(itemperpage)//3
+    .skip(pageindex*itemperpage)
+    .limit(itemperpage)
+    .sort({price:sort});
     return products;
 }
 // list product tyepe
@@ -23,8 +24,14 @@ exports.list_commnet= async(filter,indexcomment,itemperpage)=>{
     return Comments;
 }
 // list 3 products for home page
-exports.listnewproducts= async(filter)=>{
+exports.listnewproducts= async(filter,lm)=>{
     const products= await Product.find(filter)
-    .limit(3);
+    .limit(lm);
+    return products;
+}
+exports.listsellingproduct= async(filter, top)=>{
+    const products= await Product.find(filter)
+    .sort({sold:-1})
+    .limit(top);
     return products;
 }

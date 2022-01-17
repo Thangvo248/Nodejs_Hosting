@@ -17,6 +17,7 @@ class ProductController {
         const trademark=req.query.trademark;
         const filter={};
         const filterproducttype={};
+        const sort=req.query.sort||0;
         filter.deleted=false;
         if(trademark)
         filter.trademark=trademark;
@@ -35,7 +36,7 @@ class ProductController {
         const totalProduct=await Product.count(filter);
         const product_types=await productservice.list_product_type({});
         const product_type_trade= await productservice.list_product_type(filterproducttype);
-        const products = await productservice.list(filter, page-1, ITEM_PRODUCTS_PER_PAGE)
+        const products = await productservice.list(filter, page-1, ITEM_PRODUCTS_PER_PAGE,sort)
             .then(products => {
                 res.render('products/productList', {
                     products: mutipleMongooseToObject(products),
@@ -51,7 +52,9 @@ class ProductController {
                     price2:price2,
                     trademark:trademark,
                     product_type:producttype,
-                    product_type_trade:product_type_trade.trademark,
+                    product_type_trade:product_type_trade,
+                    sort: sort>0,
+                    sort1:sort<0,
                     product_types: product_types
                 });
             })
@@ -59,12 +62,21 @@ class ProductController {
     };
 //get 3 product to show panner in hame page
     async newproducts(req,res){
+        const filter={};
         const producttypes= await productservice.list_product_type();
-        const products= await productservice.listnewproducts()
+        const filterlaptop={};
+        filterlaptop.product_type="Máy tính xách tay";
+        const sellinglaptop=await productservice.listsellingproduct(filterlaptop,4);
+        const filterphone={};
+        filterphone.product_type="Điện thoại";
+        const sellingphone=await productservice.listsellingproduct(filterphone,4);
+        const products= await productservice.listnewproducts(filter,3)
         .then(products => {
             res.render('index',{
                 products:mutipleMongooseToObject(products),
-                producttypes: producttypes
+                producttypes: producttypes,
+                sellinglaptop:sellinglaptop,
+                sellingphone:sellingphone
             });
         })
     };
