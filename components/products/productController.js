@@ -3,7 +3,7 @@ const Product_Type = require('./productTypeModel');
 const { mutipleMongooseToObject } = require('../util/mongooese');
 const { mongooseToObject } = require('../util/mongooese');
 const productservice= require('./productServices');
-const ITEM_PRODUCTS_PER_PAGE=8;
+const ITEM_PRODUCTS_PER_PAGE=12;
 
 class ProductController {
     //[GET] 
@@ -11,14 +11,30 @@ class ProductController {
     async list(req, res, next) {
         const page=+req.query.page||1;
         const q= req.query.q;
-        const loaisp= req.query.loaisp;
+        const producttype= req.query.producttype;
+        const price1=req.query.price1;
+        const price2=req.query.price2;
+        const trademark=req.query.trademark;
         const filter={};
+        const filterproducttype={};
+        filter.deleted=false;
+        if(trademark)
+        filter.trademark=trademark;
+        if(price1 && price2)
+        filter.price={$gte: price1, $lte: price2};
+        else if(price1)
+        filter.price={$gte: price1};
         if(q)
         filter.name= RegExp(q,'i');
-        if(loaisp)
-        filter.product_type=loaisp;
+        if(producttype)
+        {
+            filter.product_type=producttype;
+            filterproducttype.name=producttype;
+        }
+       
         const totalProduct=await Product.count(filter);
-        const product_types=await productservice.list_product_type();
+        const product_types=await productservice.list_product_type({});
+        const product_type_trade= await productservice.list_product_type(filterproducttype);
         const products = await productservice.list(filter, page-1, ITEM_PRODUCTS_PER_PAGE)
             .then(products => {
                 res.render('products/productList', {
@@ -31,24 +47,31 @@ class ProductController {
                     currentpage:page,
                     lastpage: Math.ceil(totalProduct / ITEM_PRODUCTS_PER_PAGE),
                     q:q,
-                    product_type:loaisp,
+                    price1:price1,
+                    price2:price2,
+                    trademark:trademark,
+                    product_type:producttype,
+                    product_type_trade:product_type_trade.trademark,
                     product_types: product_types
                 });
             })
             .catch(next);
     };
+//get 3 product to show panner in hame page
+    async newproducts(req,res){
+        const producttypes= await productservice.list_product_type();
+        const products= await productservice.listnewproducts()
+        .then(products => {
+            res.render('index',{
+                products:mutipleMongooseToObject(products),
+                producttypes: producttypes
+            });
+        })
+    };
+    async cart(req, res) {
+        res.render('products/cart');
+    };
 
-    //[GET] 
-    //async list_type(req,res,next){
-        //const product_types=await productservice.list_product_type()
-       // .then(product_types=>{
-           // res.render('products/productList',{
-                //product_types:mutipleMongooseToObject(product_types)
-           // });
-        //})
-       // .catch(next);
-  //  }
-    
     //[POST]
     async add(req, res) {
 
@@ -69,11 +92,5 @@ class ProductController {
     async receipt(req, res) {
         res.render('products/receipt');
     }
-    //Tho
-
-
-
-    
-    //Vi
 }
 module.exports = new ProductController();

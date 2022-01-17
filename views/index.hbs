@@ -25,70 +25,52 @@
             <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            {{#each products}}
+            {{#if @index}}
+           <div class="carousel-item">
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                             <a href="productDetail">
-                            <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Samsung Galaxy Z Flip3</b>  5G 256GB</h1>
-                                <h3 class="h2">Siêu phẩm với màn hình gập dạng vỏ sò.</h3>
-                                <p>
-                                    Biểu tượng thời trang độc đáo nằm gọn trong túi khi gập cho bạn thỏa sức tham gia các hoạt động yêu thích ở bất cứ nơi đâu. 
-                                    Siêu phẩm công nghệ khi mở để bạn đắm chìm trải nghiệm với tốc độ mạng 5G và khả năng gập ở nhiều góc độ linh hoạt chưa từng có.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <a href="productDetail">
-                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
+                            <img class="img-fluid" src="{{this.image_url}}" alt="">
                             </a>
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1 text-success"><b>iPhone 13 Pro</b> Bạc 1TB</h1>
-                                <h3 class="h2"> Nâng cấp mạnh mẽ về cụm camera</h3>
-                                <p>
-                                    Cùng trải nghiệm một phiên bản iPhone có bộ nhớ trong lớn nhất từ trước đến nay,
-                                    sở hữu dung lượng lưu trữ lên đến 1 TB, tương tự với các phiên bản khác máy vẫn có một màn hình siêu đẹp 
-                                    cùng hiệu năng vô cùng mạnh mẽ đó chính là iPhone 13 Pro 1TB.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <a href="productDetail">
-                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1 text-success"><b>Laptop Acer Nitro 5 Gaming</b>  AN515 57 727J i7</h1>
+                                <h1 class="h1 text-success"><b>{{this.name}}</b>
                                 <h3 class="h2">Sức mạnh nổi bật nhờ công nghệ tiên tiến </h3>
                                 <p>
-                                    Sở hữu vẻ ngoài cá tính, nổi bật và được tích hợp bộ vi xử lý Intel thế hệ 11 tân tiến,
-                                    card đồ hoạ rời NVIDIA GeForce RTX, hứa hẹn mang đến các trải nghiệm tuyệt vời cho người dùng.
+                                   {{this.description}}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{else}}
+             <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <a href="productDetail">
+                            <img class="img-fluid" src="{{this.image_url}}" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success"><b>{{this.name}}</b>
+                                <h3 class="h2">Sức mạnh nổi bật nhờ công nghệ tiên tiến </h3>
+                                <p>
+                                   {{this.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        
         </div>
         <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
             <i class="fas fa-chevron-left"></i>
@@ -104,24 +86,17 @@
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1 text-success"><b>DANH MỤC</b></h1>
+                <h1 class="h1 text-success"><b>CHÚNG TÔI CUNG CẤP CÁC LOẠI SẢN PHẨM</b></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3" onclick="location.href='products'">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Điện Thoại</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            {{#each producttypes}}
+            <div class="col-12 col-md-3 p-3 mt-3" onclick="location.href='products?producttype={{this.name}}'">
+                <a href="products?producttype={{this.name}}"><img src="{{this.image}}" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">{{this.name}}</h2>
+                <p class="text-center"><a class="btn btn-success" onclick="location.href='products?producttype={{this.name}}'">xem sản phẩm</a></p>
             </div>
-            <div class="col-12 col-md-4 p-5 mt-3" onclick="location.href='products'">
-                <a href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Laptop</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3" onclick="location.href='products'">
-                <a href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Phụ kiện</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            {{/each}}
             </div>
            
         </div>

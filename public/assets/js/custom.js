@@ -50,3 +50,10 @@ findProducts.onclick=()=>{
     var a= document.getElementById("query").value;
     findProducts.href="/products?q="+a;
 }
+const x = document.querySelectorAll(".price");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
