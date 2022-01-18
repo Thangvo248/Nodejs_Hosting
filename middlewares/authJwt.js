@@ -18,15 +18,11 @@ const signAccessToken = async (userId) => {
 const verifyAccessToken = async (req, res, next) => {
   const token = req.cookies.access_token;
     if (!token) {
-      throw res.status(409).send('Không có token');
+      throw res.status(409).send('Bạn chưa đăng nhập');
     }
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET,(err,payload)=>{
-      if(err){
-        throw createError('Không verify token');
-      }
+    var payload= jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
       req.payload=payload;
       next();
-    })
 };
 
 module.exports = {

@@ -1,64 +1,35 @@
 <!--cart page-->
-       <div class="page_cart">
-           <h1 id="title_cart">Giỏ hàng của bạn</h1>
-           <div>
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Hình ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Đơn giá</th>
-                    <th>Thành tiền</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" value="option1"></td>
-                    <td><a href=""><img class="image_cart" alt="website template image" src="assets/img/category_img_01.jpg"></a></td>
-                    <td>Iphone 11ProMax Hồng cánh sen</td>
-                    <td><input type="text" placeholder="1" class="input-mini"></td>
-                    <td>28.300.000 VND</td>
-                    <td>28.300.000 VND</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" value="option1"></td>
-                    <td><a href=""><img class="image_cart" alt="website template image" src="assets/img/category_img_03.jpg"></a></td>
-                    <td>Tai phone mèo hồng cánh sen</td>
-                    <td><input type="text" placeholder="2" class="input-mini"></td>
-                    <td>1.000.000 VND</td>
-                    <td>2.000.000 VND</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" value="option1"></td>
-                    <td><a href=""><img class="image_cart" alt="website template image" src="assets/img/category_img_02.jpg"></a></td>
-                    <td>Laptop hồng cánh sen</td>
-                    <td><input type="text" placeholder="1" class="input-mini"></td>
-                    <td>22.400.000 VND</td>
-                    <td>22.400.000 VND</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" value="option1"></td>
-                    <td><a href=""><img class="image_cart" alt="website template image" src="assets/img/category_img_01.jpg"></a></td>
-                    <td>Iphone 11ProMax Hồng cánh sen</td>
-                    <td><input type="text" placeholder="1" class="input-mini"></td>
-                    <td>28.300.000 VND</td>
-                    <td>28.300.000 VND</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" value="option1"></td>
-                    <td><a href=""><img class="image_cart" alt="website template image" src="assets/img/category_img_01.jpg"></a></td>
-                    <td>Iphone 11ProMax Hồng cánh sen</td>
-                    <td><input type="text" placeholder="1" class="input-mini"></td>
-                    <td>28.300.000 VND</td>
-                    <td>28.300.000 VND</td>
-                  </tr>
-                </tbody>
-              </table>
-           </div>
-           <div>
-            <input class="cart_submit" type="submit" name="submit" value="Xóa" />
-            <a href="receipt"><input class="cart_submit" type="button" name="submit" href="receipt" value="Mua" /></a>
-           </div>
-       </div>
+<div class="page_cart">
+  <h1 id="title_cart">Giỏ hàng của bạn</h1>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Hình ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Số lượng</th>
+          <th>Đơn giá</th>
+          <th>Thành tiền</th>
+        </tr>
+      </thead>
+      {{#each products}}
+      <tbody>
+        <tr>
+          <td><input type="checkbox" value="option1"></td>
+          <td><a href=""><img class="image_cart" alt="website template image" src="{{products.imageURL}}"></a>
+          </td>
+          <td>Iphone 11ProMax Hồng cánh sen</td>
+          <td><input type="text" placeholder="1" class="input-mini"></td>
+          <td>28.300.000 VND</td>
+          <td>28.300.000 VND</td>
+        </tr>
+      </tbody>
+  {{/each}}
+    </table>
+  </div>
+  <div>
+    <input class="cart_submit" type="submit" name="submit" value="Xóa" />
+    <a href="receipt"><input class="cart_submit" type="button" name="submit" href="receipt" value="Mua" /></a>
+  </div>
+</div>

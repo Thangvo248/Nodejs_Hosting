@@ -4,30 +4,33 @@ const { signAccessToken, verifyAccessToken } = require('../../middlewares/authJw
 const { create } = require('hbs');
 const createError = require('http-errors');
 const { userValidate } = require('../../conf/db/validation');
+const { mongooseToObject } = require('../util/mongooese');
+
 class UserController {
 
     async submitLogin(req, res, next) {
         try {
             const { email, password } = req.body;
-            const user = await Account.findOne({
+            const account = await Account.findOne({
                 email: email
             });
             const { error } = userValidate(req.body);
-             if (error) {
-                 throw createError('Bạn nhập sai email, password');
-             }
-            if (!user) {
+            if (error) {
+                throw createError('Bạn nhập sai email, password');
+            }
+            if (!account) {
                 throw createError('Email không chính xác');
             }
-            const isValid = await user.isCheckPassword(password);
+            const isValid = await account.isCheckPassword(password);
             if (!isValid) {
                 throw createError('Sai mật khẩu');
             }
+            const user = await User.findOne({ email: email })
             const accessToken = await signAccessToken(user._id);
-            if(!accessToken) {
+            if (!accessToken) {
                 throw createError('Đăng nhập không thành công, bạn vui lòng thử lại');
             }
-            res.cookie('access_token',accessToken,{httpOnly: true});
+            res.cookie('access_token', accessToken, { httpOnly: true });
             res.redirect('/');
         }
         catch (error) {
@@ -38,11 +41,24 @@ class UserController {
     async login(req, res, next) {
         res.render('users/login');
     }
+    async logout(req, res, next) {
+        res.clearCookie('access_token').redirect('/');
+    }
+
     async register(req, res, next) {
         res.render('users/register');
     }
     async profile(req, res, next) {
-        res.render('users/profile');
+        const id = req.payload.userId;
+        const user = await User.findOne({
+            _id: id,
+        })
+            .then(user => {
+                res.render('users/profile', {
+                    user: mongooseToObject(user)
+                })
+            })
+            .catch(next);
     }
     async submitregister(req, res, next) {
         try {
@@ -70,7 +86,7 @@ class UserController {
             next(error);
         }
     }
-    
+
 };
 
 module.exports = new UserController();

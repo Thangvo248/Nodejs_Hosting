@@ -9,14 +9,14 @@ const CartController = require('./cartController');
 //middlewares
 const {  verifyAccessToken } = require('../../middlewares/authJwt');
 
-router.get('/cart', verifyAccessToken, CartController.cart);
-
+router.get('/cart/', verifyAccessToken, CartController.cart);
+router.post('/submitcart/:_id',verifyAccessToken, CartController.submitcart);
 router.get('/productDetail/:slug', ProductDetailController.productDetail);
 
 router.get('/receipt', ProductController.receipt);
 
 router.get('/', ProductController.list);
 
-router.post('/submitComment', ProductDetailController.submitComment);
+router.post('/submitComment/:_id', verifyAccessToken,ProductDetailController.submitComment);
 
 module.exports = router;

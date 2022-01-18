@@ -151,23 +151,18 @@
                             <li>{{productdetail.detail}}</li>
                         </ul>
 
-                        <form action="" method="GET">
+                        <form action="/products/submitcart/{{productdetail._id}}" method="POST">
                             <input type="hidden" name="product-title" value="Activewear">
                             <div class="row">
                                 <div class="col-auto">
+                                    <!--
                                     <ul class="list-inline pb-3">
                                         <li class="list-inline-item">Màu: :
                                             <input type="hidden" name="product-size" id="product-size" value="S">
                                         </li>
                                         <li class="list-inline-item"><span class="btn btn-success btn-size">Trắng</span>
                                         </li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Đen</span>
-                                        </li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Hồng</span>
-                                        </li>
-                                        <li class="list-inline-item"><span class="btn btn-success btn-size">Xanh</span>
-                                        </li>
-                                    </ul>
+                                    </ul>-->
                                 </div>
                                 <div class="col-auto">
                                     <ul class="list-inline pb-3">
@@ -177,7 +172,7 @@
                                         </li>
                                         <li class="list-inline-item"><span class="btn btn-success"
                                                 id="btn-minus">-</span></li>
-                                        <li class="list-inline-item"><span class="badge bg-secondary"
+                                        <li class="list-inline-item"><span class="badge bg-secondary" name="product-quanity"
                                                 id="var-value">1</span></li>
                                         <li class="list-inline-item"><span class="btn btn-success"
                                                 id="btn-plus">+</span></li>
@@ -185,10 +180,11 @@
                                 </div>
                             </div>
                             <div class="row pb-3">
+                                <!--
                                 <div class="col d-grid">
                                     <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Mua
                                         ngay</button>
-                                </div>
+                                </div>-->
                                 <div class="col d-grid">
                                     <button type="submit" class="btn btn-success btn-lg" name="submit"
                                         value="addtocard">Thêm vào giỏ hàng</button>
@@ -271,20 +267,21 @@
                         {{this.content}}
                     </div>
                 </div>
-                  {{/each}}
-                <p class="load-more" onclick="location.href='/products/productDetail/{{comments.0.product}}?indexcomment={{nextindexcomment}}'">Load thêm...</p>
+                {{/each}}
+                <p class="load-more"
+                    onclick="location.href='/products/productDetail/{{comments.0.product}}?indexcomment={{nextindexcomment}}'">
+                    Load thêm...</p>
             </div>
-            </div>
-          
+        </div>
+
         <div class="cmt-area">
-            <form method="POST" action="/products/submitComment">
-            <p class="title">Bình luận</p>
-            <input type="text" class="input" placeholder="Tên của bạn">
-            <input type="text" class="input" placeholder="Số điện thoại">
-            <input type="text" class="input" placeholder="Nội dung đánh giá">
-            <button class="submit-btn">
-                Gửi Bình luận
-            </button>
+            <form method="POST" action="/products/submitComment/{{productdetail._id}}">
+                <p class="title">Bình luận</p>
+
+                <input type="text" class="input" name="content" placeholder="Nội dung đánh giá">
+                <button class="submit-btn">
+                    Gửi Bình luận
+                </button>
             </form>
         </div>
     </div>

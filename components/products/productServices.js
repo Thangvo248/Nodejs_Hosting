@@ -19,7 +19,12 @@ exports.list_product_type=async()=>{
 }
 // list comment
 exports.list_commnet= async(filter,indexcomment,itemperpage)=>{
-    const Comments= await Comment.find(filter)
+    const product= await Product.findOne({
+        slug: filter.slug,
+    })
+    const Comments= await Comment.find({
+        product: product._id,
+    })
     .limit(indexcomment*itemperpage);
     return Comments;
 }
